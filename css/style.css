@@ -9,6 +9,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+   
+
 }
 
 .item {
@@ -16,12 +29,22 @@
     width: 700px;
     height: 300px;
     position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  
+
 }
 
 .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all 0.3s ease-in-out;
+
 }
 
 .item .text {
@@ -37,39 +60,49 @@
     height: 300px;
     background: #000;
     position: relative;
+    margin: 0 10px;
 }
 
 .thumb {
     height: calc((300px) / 5);
     opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
 }
 
 .thumb.active {
     border: 2px solid #ccc;
     opacity: 1;
+
 }
 
 .prev, .next {
-    width: 20px;
+    width: 100%;
     height: 20px;
     margin: 10px 0;
-    border-radius: 50%;
-    background: #ccc;
+    border-radius: 25px 25px 25px 25px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     cursor: pointer;
     z-index: 999;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    
 }
 
 .next {
-    bottom: 0;
+    top: -45px;
 }
 
 /*
@@ -78,25 +111,29 @@ usando 2 bordi di un quadratino ruotato di 45 gradi
 In una versione base si possono usare delle icone
 oppure i caratteri ∧ (&and;) e ∨ (&or;)
  */
-.prev::after {
+.next::after {
     content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
     display: block;
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%) rotate(-45deg);
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+
+
 }
 
-.next::before {
+.prev::before {
     content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
     display: block;
     position: absolute;
     bottom: 35%;
